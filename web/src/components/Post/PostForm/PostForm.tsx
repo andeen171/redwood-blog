@@ -9,24 +9,8 @@ import {
   Submit,
 } from '@redwoodjs/forms'
 
-
-
 const PostForm = (props) => {
   const onSubmit = (data) => {
-
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
     props.onSave(data, props?.post?.id)
   }
 
@@ -39,7 +23,7 @@ const PostForm = (props) => {
           titleClassName="rw-form-error-title"
           listClassName="rw-form-error-list"
         />
-      
+
         <Label
           name="published"
           className="rw-label"
@@ -47,14 +31,13 @@ const PostForm = (props) => {
         >
           Published
         </Label>
-        
-          <CheckboxField
-            name="published"
-            defaultChecked={props.post?.published}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-          />
-        
+
+        <CheckboxField
+          name="published"
+          defaultChecked={props.post?.published}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
 
         <FieldError name="published" className="rw-field-error" />
 
@@ -65,15 +48,14 @@ const PostForm = (props) => {
         >
           Title
         </Label>
-        
-          <TextField
-            name="title"
-            defaultValue={props.post?.title}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-        
+
+        <TextField
+          name="title"
+          defaultValue={props.post?.title}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
         <FieldError name="title" className="rw-field-error" />
 
@@ -84,15 +66,14 @@ const PostForm = (props) => {
         >
           Body
         </Label>
-        
-          <TextField
-            name="body"
-            defaultValue={props.post?.body}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-        
+
+        <TextField
+          name="body"
+          defaultValue={props.post?.body}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
         <FieldError name="body" className="rw-field-error" />
 
@@ -103,22 +84,18 @@ const PostForm = (props) => {
         >
           Author id
         </Label>
-        
-          <NumberField
-            name="authorId"
-            defaultValue={props.post?.authorId}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-          />
-        
+
+        <NumberField
+          name="authorId"
+          defaultValue={props.post?.authorId}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
 
         <FieldError name="authorId" className="rw-field-error" />
 
         <div className="rw-button-group">
-          <Submit
-            disabled={props.loading}
-            className="rw-button rw-button-blue"
-          >
+          <Submit disabled={props.loading} className="rw-button rw-button-blue">
             Save
           </Submit>
         </div>

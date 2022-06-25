@@ -1,9 +1,9 @@
 import type { EditPostById } from 'types/graphql'
 
+import { navigate, routes } from '@redwoodjs/router'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
-import { navigate, routes } from '@redwoodjs/router'
 
 import PostForm from 'src/components/Post/PostForm'
 
@@ -52,7 +52,9 @@ export const Success = ({ post }: CellSuccessProps<EditPostById>) => {
   })
 
   const onSave = (input, id) => {
-    const castInput = Object.assign(input, { authorId: parseInt(input.authorId), })
+    const castInput = Object.assign(input, {
+      authorId: parseInt(input.authorId),
+    })
     updatePost({ variables: { id, input: castInput } })
   }
 

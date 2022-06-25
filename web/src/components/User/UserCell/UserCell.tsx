@@ -1,4 +1,5 @@
 import type { FindUserById } from 'types/graphql'
+
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 import User from 'src/components/User/User'

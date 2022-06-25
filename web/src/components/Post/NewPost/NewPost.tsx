@@ -1,6 +1,7 @@
+import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
-import { navigate, routes } from '@redwoodjs/router'
+
 import PostForm from 'src/components/Post/PostForm'
 
 const CREATE_POST_MUTATION = gql`
@@ -23,7 +24,9 @@ const NewPost = () => {
   })
 
   const onSave = (input) => {
-    const castInput = Object.assign(input, { authorId: parseInt(input.authorId), })
+    const castInput = Object.assign(input, {
+      authorId: parseInt(input.authorId),
+    })
     createPost({ variables: { input: castInput } })
   }
 
