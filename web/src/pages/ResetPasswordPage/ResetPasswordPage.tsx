@@ -34,11 +34,11 @@ const ResetPasswordPage = ({ resetToken }) => {
       }
     }
     validateToken()
-  }, [])
+  }, [resetToken, validateResetToken])
 
   const passwordRef = useRef<HTMLInputElement>()
   useEffect(() => {
-    passwordRef.current.focus()
+    passwordRef?.current?.focus()
   }, [])
 
   const onSubmit = async (data) => {

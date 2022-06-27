@@ -16,7 +16,7 @@ const DELETE_POST_MUTATION = gql`
 
 const MAX_STRING_LENGTH = 150
 
-const formatEnum = (values: string | string[] | null | undefined) => {
+const _formatEnum = (values: string | string[] | null | undefined) => {
   if (values) {
     if (Array.isArray(values)) {
       const humanizedValues = values.map((value) => humanize(value))
@@ -35,7 +35,7 @@ const truncate = (text) => {
   return output
 }
 
-const jsonTruncate = (obj) => {
+const _jsonTruncate = (obj) => {
   return truncate(JSON.stringify(obj, null, 2))
 }
 

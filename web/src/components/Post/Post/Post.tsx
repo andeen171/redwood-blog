@@ -12,7 +12,7 @@ const DELETE_POST_MUTATION = gql`
   }
 `
 
-const formatEnum = (values: string | string[] | null | undefined) => {
+const _formatEnum = (values: string | string[] | null | undefined) => {
   if (values) {
     if (Array.isArray(values)) {
       const humanizedValues = values.map((value) => humanize(value))
@@ -23,7 +23,7 @@ const formatEnum = (values: string | string[] | null | undefined) => {
   }
 }
 
-const jsonDisplay = (obj) => {
+const _jsonDisplay = (obj) => {
   return (
     <pre>
       <code>{JSON.stringify(obj, null, 2)}</code>

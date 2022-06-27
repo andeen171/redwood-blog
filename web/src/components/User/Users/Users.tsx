@@ -35,7 +35,7 @@ const truncate = (text) => {
   return output
 }
 
-const jsonTruncate = (obj) => {
+const _jsonTruncate = (obj) => {
   return truncate(JSON.stringify(obj, null, 2))
 }
 
@@ -49,7 +49,7 @@ const timeTag = (datetime) => {
   )
 }
 
-const checkboxInputTag = (checked) => {
+const _checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 

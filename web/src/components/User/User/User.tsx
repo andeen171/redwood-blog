@@ -23,7 +23,7 @@ const formatEnum = (values: string | string[] | null | undefined) => {
   }
 }
 
-const jsonDisplay = (obj) => {
+const _jsonDisplay = (obj) => {
   return (
     <pre>
       <code>{JSON.stringify(obj, null, 2)}</code>
@@ -41,7 +41,7 @@ const timeTag = (datetime) => {
   )
 }
 
-const checkboxInputTag = (checked) => {
+const _checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
