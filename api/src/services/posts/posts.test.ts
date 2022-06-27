@@ -23,25 +23,25 @@ describe('posts', () => {
   scenario('creates a post', async () => {
     const result = await createPost({
       input: {
-        updatedAt: '2022-06-09T14:58:39Z',
         title: 'String',
         body: 'String',
+        published: true,
       },
     })
 
-    expect(result.updatedAt).toEqual('2022-06-09T14:58:39Z')
     expect(result.title).toEqual('String')
     expect(result.body).toEqual('String')
+    expect(result.published).toEqual(true)
   })
 
   scenario('updates a post', async (scenario: StandardScenario) => {
     const original = await post({ id: scenario.post.one.id })
     const result = await updatePost({
       id: original.id,
-      input: { updatedAt: '2022-06-10T14:58:39Z' },
+      input: { body: 'Updated' },
     })
 
-    expect(result.updatedAt).toEqual('2022-06-10T14:58:39Z')
+    expect(result.body).toEqual('Updated')
   })
 
   scenario('deletes a post', async (scenario: StandardScenario) => {

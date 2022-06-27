@@ -1,6 +1,7 @@
 import { render } from '@redwoodjs/testing/web'
 
 import Article from './Article'
+import { standard } from './Article.mock'
 
 //   Improve this test with help from the Redwood Testing Doc:
 //    https://redwoodjs.com/docs/testing#testing-components
@@ -8,7 +9,7 @@ import Article from './Article'
 describe('Article', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<Article />)
+      render(<Article {...standard()} />)
     }).not.toThrow()
   })
 })
