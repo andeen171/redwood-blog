@@ -20,6 +20,7 @@ export const schema = gql`
     title: String!
     body: String!
     authorId: Int
+    updatedAt: Date
   }
 
   input UpdatePostInput {
@@ -27,6 +28,7 @@ export const schema = gql`
     title: String
     body: String
     authorId: Int
+    updatedAt: Date
   }
 
   type Mutation {
