@@ -1,13 +1,7 @@
-import { render } from '@redwoodjs/testing/web'
+import { render, screen, within } from '@redwoodjs/testing/web'
 
 import { Loading, Empty, Failure, Success } from './ArticleCell'
 import { standard } from './ArticleCell.mock'
-
-// Generated boilerplate tests do not account for all circumstances
-// and can fail without adjustments, e.g. Float and DateTime types.
-//           Please refer to the RedwoodJS Testing Docs:
-//        https://redwoodjs.com/docs/testing#testing-cells
-// https://redwoodjs.com/docs/testing#jest-expect-type-considerations
 
 describe('ArticleCell', () => {
   it('renders Loading successfully', () => {
@@ -28,15 +22,22 @@ describe('ArticleCell', () => {
     }).not.toThrow()
   })
 
-  // When you're ready to test the actual output of your component render
-  // you could test that, for example, certain text is present:
-  //
-  // 1. import { screen } from '@redwoodjs/testing/web'
-  // 2. Add test: expect(screen.getByText('Hello, world')).toBeInTheDocument()
-
   it('renders Success successfully', async () => {
     expect(() => {
       render(<Success article={standard().article} />)
     }).not.toThrow()
+  })
+
+  it('renders content correctly', async () => {
+    const article = standard().article
+    render(<Success article={article} />)
+    const truncatedBody = article.body.substring(0, 100)
+    const matchedBody = screen.getByText(truncatedBody)
+    const ellipsis = within(matchedBody).getByText('...', { exact: false })
+
+    expect(screen.getByText(article.title)).toBeInTheDocument()
+    expect(screen.queryByText(article.body)).not.toBeInTheDocument()
+    expect(matchedBody).toBeInTheDocument()
+    expect(ellipsis).toBeInTheDocument()
   })
 })

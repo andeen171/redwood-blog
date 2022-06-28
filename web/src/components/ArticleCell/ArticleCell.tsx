@@ -19,14 +19,10 @@ export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => <div>Empty</div>
 
-export const Failure = ({
-  error,
-}: CellFailureProps<FindArticleQueryVariables>) => (
+export const Failure = ({ error }: CellFailureProps<FindArticleQueryVariables>) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
-export const Success = ({
-  article,
-}: CellSuccessProps<FindArticleQuery, FindArticleQueryVariables>) => {
+export const Success = ({ article }: CellSuccessProps<FindArticleQuery, FindArticleQueryVariables>) => {
   return <Article article={article} />
 }

@@ -1,13 +1,4 @@
-import {
-  Form,
-  FormError,
-  FieldError,
-  Label,
-  CheckboxField,
-  TextField,
-  NumberField,
-  Submit,
-} from '@redwoodjs/forms'
+import { Form, FormError, FieldError, Label, CheckboxField, TextField, NumberField, Submit } from '@redwoodjs/forms'
 
 const PostForm = (props) => {
   const onSubmit = (data) => {
@@ -24,11 +15,7 @@ const PostForm = (props) => {
           listClassName="rw-form-error-list"
         />
 
-        <Label
-          name="published"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
+        <Label name="published" className="rw-label" errorClassName="rw-label rw-label-error">
           Published
         </Label>
 
@@ -41,11 +28,7 @@ const PostForm = (props) => {
 
         <FieldError name="published" className="rw-field-error" />
 
-        <Label
-          name="title"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
+        <Label name="title" className="rw-label" errorClassName="rw-label rw-label-error">
           Title
         </Label>
 
@@ -59,11 +42,7 @@ const PostForm = (props) => {
 
         <FieldError name="title" className="rw-field-error" />
 
-        <Label
-          name="body"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
+        <Label name="body" className="rw-label" errorClassName="rw-label rw-label-error">
           Body
         </Label>
 
@@ -77,11 +56,7 @@ const PostForm = (props) => {
 
         <FieldError name="body" className="rw-field-error" />
 
-        <Label
-          name="authorId"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
+        <Label name="authorId" className="rw-label" errorClassName="rw-label rw-label-error">
           Author id
         </Label>
 

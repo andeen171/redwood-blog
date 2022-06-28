@@ -30,9 +30,7 @@ export const Empty = () => {
   )
 }
 
-export const Failure = ({ error }: CellFailureProps) => (
-  <div className="rw-cell-error">{error.message}</div>
-)
+export const Failure = ({ error }: CellFailureProps) => <div className="rw-cell-error">{error.message}</div>
 
 export const Success = ({ users }: CellSuccessProps<FindUsers>) => {
   return <Users users={users} />

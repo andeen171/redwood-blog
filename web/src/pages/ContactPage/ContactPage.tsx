@@ -1,7 +1,4 @@
-import {
-  CreateContactMutation,
-  CreateContactMutationVariables,
-} from 'types/graphql'
+import { CreateContactMutation, CreateContactMutationVariables } from 'types/graphql'
 
 import {
   FieldError,
@@ -33,15 +30,15 @@ interface FormValues {
 
 const ContactPage = () => {
   const formMethods = useForm({ mode: 'onBlur' })
-  const [create, { loading, error }] = useMutation<
-    CreateContactMutation,
-    CreateContactMutationVariables
-  >(CREATE_CONTACT, {
-    onCompleted: () => {
-      toast.success('Thank you for your submission!')
-      formMethods.reset()
-    },
-  })
+  const [create, { loading, error }] = useMutation<CreateContactMutation, CreateContactMutationVariables>(
+    CREATE_CONTACT,
+    {
+      onCompleted: () => {
+        toast.success('Thank you for your submission!')
+        formMethods.reset()
+      },
+    }
+  )
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     create({ variables: { input: data } })
@@ -110,10 +107,7 @@ const ContactPage = () => {
         />
         <FieldError name="message" className="block text-red-700" />
 
-        <Submit
-          className="block bg-blue-700 text-white mt-8 px-4 py-2 rounded"
-          disabled={loading}
-        >
+        <Submit className="block bg-blue-700 text-white mt-8 px-4 py-2 rounded" disabled={loading}>
           Save
         </Submit>
       </Form>

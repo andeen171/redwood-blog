@@ -2,14 +2,7 @@ import { useRef } from 'react'
 import { useEffect } from 'react'
 
 import { useAuth } from '@redwoodjs/auth'
-import {
-  Form,
-  Label,
-  TextField,
-  PasswordField,
-  FieldError,
-  Submit,
-} from '@redwoodjs/forms'
+import { Form, Label, TextField, PasswordField, FieldError, Submit } from '@redwoodjs/forms'
 import { Link, navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
@@ -57,11 +50,7 @@ const SignupPage = () => {
             <div className="rw-segment-main">
               <div className="rw-form-wrapper">
                 <Form onSubmit={onSubmit} className="rw-form-wrapper">
-                  <Label
-                    name="username"
-                    className="rw-label"
-                    errorClassName="rw-label rw-label-error"
-                  >
+                  <Label name="username" className="rw-label" errorClassName="rw-label rw-label-error">
                     Email
                   </Label>
                   <TextField
@@ -82,11 +71,7 @@ const SignupPage = () => {
                   />
                   <FieldError name="username" className="rw-field-error" />
 
-                  <Label
-                    name="password"
-                    className="rw-label"
-                    errorClassName="rw-label rw-label-error"
-                  >
+                  <Label name="password" className="rw-label" errorClassName="rw-label rw-label-error">
                     Password
                   </Label>
                   <PasswordField
@@ -104,9 +89,7 @@ const SignupPage = () => {
                   <FieldError name="password" className="rw-field-error" />
 
                   <div className="rw-button-group">
-                    <Submit className="rw-button rw-button-blue">
-                      Sign Up
-                    </Submit>
+                    <Submit className="rw-button rw-button-blue">Sign Up</Submit>
                   </div>
                 </Form>
               </div>

@@ -1,20 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { useAuth } from '@redwoodjs/auth'
-import {
-  Form,
-  Label,
-  PasswordField,
-  Submit,
-  FieldError,
-} from '@redwoodjs/forms'
+import { Form, Label, PasswordField, Submit, FieldError } from '@redwoodjs/forms'
 import { navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
 
 const ResetPasswordPage = ({ resetToken }) => {
-  const { isAuthenticated, reauthenticate, validateResetToken, resetPassword } =
-    useAuth()
+  const { isAuthenticated, reauthenticate, validateResetToken, resetPassword } = useAuth()
   const [enabled, setEnabled] = useState(true)
 
   useEffect(() => {
@@ -65,20 +58,14 @@ const ResetPasswordPage = ({ resetToken }) => {
         <div className="rw-scaffold rw-login-container">
           <div className="rw-segment">
             <header className="rw-segment-header">
-              <h2 className="rw-heading rw-heading-secondary">
-                Reset Password
-              </h2>
+              <h2 className="rw-heading rw-heading-secondary">Reset Password</h2>
             </header>
 
             <div className="rw-segment-main">
               <div className="rw-form-wrapper">
                 <Form onSubmit={onSubmit} className="rw-form-wrapper">
                   <div className="text-left">
-                    <Label
-                      name="password"
-                      className="rw-label"
-                      errorClassName="rw-label rw-label-error"
-                    >
+                    <Label name="password" className="rw-label" errorClassName="rw-label rw-label-error">
                       New Password
                     </Label>
                     <PasswordField
@@ -100,10 +87,7 @@ const ResetPasswordPage = ({ resetToken }) => {
                   </div>
 
                   <div className="rw-button-group">
-                    <Submit
-                      className="rw-button rw-button-blue"
-                      disabled={!enabled}
-                    >
+                    <Submit className="rw-button rw-button-blue" disabled={!enabled}>
                       Submit
                     </Submit>
                   </div>

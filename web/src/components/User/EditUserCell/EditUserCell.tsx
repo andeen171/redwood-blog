@@ -32,9 +32,7 @@ const UPDATE_USER_MUTATION = gql`
 
 export const Loading = () => <div>Loading...</div>
 
-export const Failure = ({ error }: CellFailureProps) => (
-  <div className="rw-cell-error">{error.message}</div>
-)
+export const Failure = ({ error }: CellFailureProps) => <div className="rw-cell-error">{error.message}</div>
 
 export const Success = ({ user }: CellSuccessProps<EditUserById>) => {
   const [updateUser, { loading, error }] = useMutation(UPDATE_USER_MUTATION, {

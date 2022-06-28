@@ -36,9 +36,7 @@ const UPDATE_POST_MUTATION = gql`
 
 export const Loading = () => <div>Loading...</div>
 
-export const Failure = ({ error }: CellFailureProps) => (
-  <div className="rw-cell-error">{error.message}</div>
-)
+export const Failure = ({ error }: CellFailureProps) => <div className="rw-cell-error">{error.message}</div>
 
 export const Success = ({ post }: CellSuccessProps<EditPostById>) => {
   const [updatePost, { loading, error }] = useMutation(UPDATE_POST_MUTATION, {

@@ -18,21 +18,11 @@ const Article = ({ article, summary = false }: Props) => {
     <article>
       <header>
         <h2 className="text-xl text-blue-700 font-semibold">
-          <Link
-            to={
-              isAuthenticated
-                ? routes.article({ id: article.id })
-                : routes.login()
-            }
-          >
-            {article.title}
-          </Link>
+          <Link to={isAuthenticated ? routes.article({ id: article.id }) : routes.login()}>{article.title}</Link>
         </h2>
         <p className="text-slate-700 text-xs">{article.createdAt}</p>
       </header>
-      <div className="mt-2 text-gray-900 font-light">
-        {summary ? truncate(article.body, 100) : article.body}
-      </div>
+      <div className="mt-2 text-gray-900 font-light">{summary ? truncate(article.body, 100) : article.body}</div>
     </article>
   )
 }

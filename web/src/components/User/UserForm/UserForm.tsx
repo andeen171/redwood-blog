@@ -1,12 +1,4 @@
-import {
-  Form,
-  FormError,
-  FieldError,
-  Label,
-  TextField,
-  RadioField,
-  Submit,
-} from '@redwoodjs/forms'
+import { Form, FormError, FieldError, Label, TextField, RadioField, Submit } from '@redwoodjs/forms'
 
 const UserForm = (props) => {
   const onSubmit = (data) => {
@@ -23,11 +15,7 @@ const UserForm = (props) => {
           listClassName="rw-form-error-list"
         />
 
-        <Label
-          name="email"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
+        <Label name="email" className="rw-label" errorClassName="rw-label rw-label-error">
           Email
         </Label>
 
@@ -41,11 +29,7 @@ const UserForm = (props) => {
 
         <FieldError name="email" className="rw-field-error" />
 
-        <Label
-          name="name"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
+        <Label name="name" className="rw-label" errorClassName="rw-label rw-label-error">
           Name
         </Label>
 
@@ -58,11 +42,7 @@ const UserForm = (props) => {
 
         <FieldError name="name" className="rw-field-error" />
 
-        <Label
-          name="role"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
+        <Label name="role" className="rw-label" errorClassName="rw-label rw-label-error">
           Role
         </Label>
 

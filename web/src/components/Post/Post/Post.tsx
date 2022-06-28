@@ -66,9 +66,7 @@ const Post = ({ post }) => {
     <>
       <div className="rw-segment">
         <header className="rw-segment-header">
-          <h2 className="rw-heading rw-heading-secondary">
-            Post {post.id} Detail
-          </h2>
+          <h2 className="rw-heading rw-heading-secondary">Post {post.id} Detail</h2>
         </header>
         <table className="rw-table">
           <tbody>
@@ -104,17 +102,10 @@ const Post = ({ post }) => {
         </table>
       </div>
       <nav className="rw-button-group">
-        <Link
-          to={routes.editPost({ id: post.id })}
-          className="rw-button rw-button-blue"
-        >
+        <Link to={routes.editPost({ id: post.id })} className="rw-button rw-button-blue">
           Edit
         </Link>
-        <button
-          type="button"
-          className="rw-button rw-button-red"
-          onClick={() => onDeleteClick(post.id)}
-        >
+        <button type="button" className="rw-button rw-button-red" onClick={() => onDeleteClick(post.id)}>
           Delete
         </button>
       </nav>
