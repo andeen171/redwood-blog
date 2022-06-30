@@ -6,7 +6,9 @@ const HomePage = () => {
   return (
     <>
       <MetaTags title="Home" description="Home page" />
-      <ArticlesCell />
+      <div className="container mx-auto space-y-4">
+        <ArticlesCell />
+      </div>
     </>
   )
 }

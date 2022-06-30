@@ -9,9 +9,12 @@ const BlogLayout = ({ children }: BlogLayoutProps) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
   return (
     <>
-      <header className="relative flex justify-between items-center py-4 px-8 bg-blue-700 text-white">
+      <header className="relative flex justify-between items-center py-4 px-8 bg-blue-700 dark:bg-sky-500 text-white">
         <h1 className="text-5xl font-semibold tracking-tight">
-          <Link className="text-blue-400 hover:text-blue-100 transition duration-100" to={routes.home()}>
+          <Link
+            className="text-blue-400 dark:text-sky-300 hover:text-blue-100 transition duration-100"
+            to={routes.home()}
+          >
             Redwood Blog
           </Link>
         </h1>
@@ -46,7 +49,7 @@ const BlogLayout = ({ children }: BlogLayoutProps) => {
           )}
         </nav>
       </header>
-      <main className="max-w-4xl mx-auto p-12 bg-white shadow rounded-b">{children}</main>
+      <main className="max-w-4xl mx-auto p-12 dark:bg-slate-600">{children}</main>
     </>
   )
 }

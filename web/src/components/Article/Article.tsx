@@ -3,9 +3,8 @@ import type { Post } from 'types/graphql'
 import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 
-const truncate = (text: string, length: number) => {
-  return text.substring(0, length) + '...'
-}
+import formatDate from 'src/utils/FormatDate/FormatDate'
+import truncateText from 'src/utils/TruncateText/TruncateText'
 
 interface Props {
   article: Partial<Post>
@@ -15,14 +14,16 @@ interface Props {
 const Article = ({ article, summary = false }: Props) => {
   const { isAuthenticated } = useAuth()
   return (
-    <article>
+    <article className="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-lg">
       <header>
-        <h2 className="text-xl text-blue-700 font-semibold">
+        <h2 className="text-xl text-blue-700 dark:text-sky-400 font-semibold dark:font-medium hover:text-sky-200 transition duration-100">
           <Link to={isAuthenticated ? routes.article({ id: article.id }) : routes.login()}>{article.title}</Link>
         </h2>
-        <p className="text-slate-700 text-xs">{article.createdAt}</p>
+        <p className="text-slate-700 text-xs dark:text-gray-300">{formatDate(article.createdAt)}</p>
       </header>
-      <div className="mt-2 text-gray-900 font-light">{summary ? truncate(article.body, 100) : article.body}</div>
+      <div className="mt-2 text-gray-900 dark:text-gray-300 font-light">
+        {summary ? truncateText(article.body, 100) : article.body}
+      </div>
     </article>
   )
 }

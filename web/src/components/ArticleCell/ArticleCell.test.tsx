@@ -1,4 +1,6 @@
-import { render, screen, within } from '@redwoodjs/testing/web'
+import { render, screen } from '@redwoodjs/testing/web'
+
+import formatDate from 'src/utils/FormatDate/FormatDate'
 
 import { Loading, Empty, Failure, Success } from './ArticleCell'
 import { standard } from './ArticleCell.mock'
@@ -28,16 +30,11 @@ describe('ArticleCell', () => {
     }).not.toThrow()
   })
 
-  it('renders content correctly', async () => {
+  it('renders success content correctly', async () => {
     const article = standard().article
     render(<Success article={article} />)
-    const truncatedBody = article.body.substring(0, 100)
-    const matchedBody = screen.getByText(truncatedBody)
-    const ellipsis = within(matchedBody).getByText('...', { exact: false })
-
     expect(screen.getByText(article.title)).toBeInTheDocument()
-    expect(screen.queryByText(article.body)).not.toBeInTheDocument()
-    expect(matchedBody).toBeInTheDocument()
-    expect(ellipsis).toBeInTheDocument()
+    expect(screen.getByText(formatDate(article.createdAt))).toBeInTheDocument()
+    expect(screen.getByText(article.body)).toBeInTheDocument()
   })
 })
