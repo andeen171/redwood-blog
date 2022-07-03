@@ -8,20 +8,10 @@
 </head>
 
 <body>
-  <div id="redwood-app" class="dark:bg-slate-600">
+  <div id="redwood-app">
     <!-- Please keep the line below for prerender support. -->
     <%= prerenderPlaceholder %>
   </div>
 </body>
-<script>
-  if (
-  localStorage.theme === 'dark' ||
-  (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-) {
-  document.documentElement.classList.add('dark')
-} else {
-  document.documentElement.classList.remove('dark')
-}
-</script>
 
 </html>

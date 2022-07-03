@@ -1,6 +1,11 @@
 import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 
+import ThemeToggle from 'src/components/ThemeToggle'
+
+const linkClassNames =
+  'py-2 px-4 font-semibold text-blue-400 dark:text-sky-300 hover:text-blue-100 dark:hover:text-sky-100  transition duration-100'
+
 type BlogLayoutProps = {
   children?: React.ReactNode
 }
@@ -11,34 +16,27 @@ const BlogLayout = ({ children }: BlogLayoutProps) => {
     <>
       <header className="relative flex justify-between items-center py-4 px-8 bg-blue-700 dark:bg-sky-500 text-white">
         <h1 className="text-5xl font-semibold tracking-tight">
-          <Link
-            className="text-blue-400 dark:text-sky-300 hover:text-blue-100 transition duration-100"
-            to={routes.home()}
-          >
+          <Link className={linkClassNames} to={routes.home()}>
             Redwood Blog
           </Link>
         </h1>
         <nav>
           <ul className="relative flex items-center font-light">
+            <ThemeToggle />
             <li>
-              <Link className="py-2 px-4 hover:bg-blue-600 transition duration-100 rounded" to={routes.about()}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link className="py-2 px-4 hover:bg-blue-600 transition duration-100 rounded" to={routes.contact()}>
+              <Link className={linkClassNames} to={routes.contact()}>
                 Contact
               </Link>
             </li>
             <li>
               {isAuthenticated ? (
                 <div>
-                  <button type="button" onClick={logOut} className="py-2 px-4">
+                  <button type="button" onClick={logOut} className={linkClassNames}>
                     Logout
                   </button>
                 </div>
               ) : (
-                <Link to={routes.login()} className="py-2 px-4">
+                <Link to={routes.login()} className={linkClassNames}>
                   Login
                 </Link>
               )}
@@ -49,7 +47,7 @@ const BlogLayout = ({ children }: BlogLayoutProps) => {
           )}
         </nav>
       </header>
-      <main className="max-w-4xl mx-auto p-12 dark:bg-slate-600">{children}</main>
+      <main className="max-w-4xl mx-auto p-12">{children}</main>
     </>
   )
 }

@@ -3,6 +3,7 @@ import type { FindArticleQuery, FindArticleQueryVariables } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 import Article from 'src/components/Article'
+import LoadingSpinner from 'src/components/LoadingSpinner'
 
 export const QUERY = gql`
   query FindArticleQuery($id: Int!) {
@@ -14,8 +15,7 @@ export const QUERY = gql`
     }
   }
 `
-
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <LoadingSpinner />
 
 export const Empty = () => <div>Empty</div>
 

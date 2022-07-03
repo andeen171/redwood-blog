@@ -1,5 +1,5 @@
 export const truncateText = (text: string, length: number) => {
-  return text.substring(0, length) + '...'
+  return text.length > length ? text.substring(0, length) + '...' : text
 }
 
 export default truncateText

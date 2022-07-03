@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web'
 
-import AboutPage from './AboutPage'
+import ThemeToggle from './ThemeToggle'
 
 //   Improve this test with help from the Redwood Testing Doc:
-//   https://redwoodjs.com/docs/testing#testing-pages-layouts
+//    https://redwoodjs.com/docs/testing#testing-components
 
-describe('AboutPage', () => {
+describe('ThemeToggle', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<AboutPage />)
+      render(<ThemeToggle />)
     }).not.toThrow()
   })
 })
