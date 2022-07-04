@@ -14,7 +14,10 @@ const getInitialTheme = () => {
   return 'light'
 }
 
-export const ThemeContext = React.createContext<[string, React.Dispatch<React.SetStateAction<string>>]>(null)
+export const ThemeContext = React.createContext<[string, React.Dispatch<React.SetStateAction<string>>]>([
+  null,
+  () => null,
+])
 
 interface Props {
   children: React.ReactNode

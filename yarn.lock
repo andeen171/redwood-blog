@@ -2760,6 +2760,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@headlessui/react@npm:^1.6.5":
+  version: 1.6.5
+  resolution: "@headlessui/react@npm:1.6.5"
+  peerDependencies:
+    react: ^16 || ^17 || ^18
+    react-dom: ^16 || ^17 || ^18
+  checksum: bc08a9f483f585741dce88ddffc7d4d2c3e6aac286c5c614d963b8aa3ab64713698b77af7fa3da52c6fbe2e2edf32fdfb196287ef038e10b179c368159e170d0
+  languageName: node
+  linkType: hard
+
+"@heroicons/react@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "@heroicons/react@npm:1.0.6"
+  peerDependencies:
+    react: ">= 16"
+  checksum: 04d77c604be6a9d3373e2cf773ef0f3e9fa02b52ed85260c440e629682dc3045935090811dda0423fa9bb2d5f8090cdbdda54c901dd3598c9bad691d0abce3d6
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.9.2":
   version: 0.9.5
   resolution: "@humanwhocodes/config-array@npm:0.9.5"
@@ -20758,6 +20777,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@headlessui/react": ^1.6.5
+    "@heroicons/react": ^1.0.6
     "@redwoodjs/core": ^2.0.0
     react-icons: ^4.4.0
     web: "workspace:^"

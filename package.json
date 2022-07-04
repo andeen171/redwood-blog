@@ -23,6 +23,8 @@
   },
   "packageManager": "yarn@3.2.1",
   "dependencies": {
+    "@headlessui/react": "^1.6.5",
+    "@heroicons/react": "^1.0.6",
     "react-icons": "^4.4.0",
     "web": "workspace:^"
   }
