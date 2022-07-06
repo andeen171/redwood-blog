@@ -47,7 +47,7 @@ export const ThemeProvider = ({ initialTheme, children }: Props) => {
 
   return (
     <ThemeContext.Provider value={[theme, setTheme]}>
-      <body className="bg-white dark:bg-slate-900 transition-all">{children}</body>
+      <div className="bg-white dark:bg-slate-900 transition-all">{children}</div>
     </ThemeContext.Provider>
   )
 }

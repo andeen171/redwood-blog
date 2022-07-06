@@ -68,3 +68,24 @@ input.error, textarea.error {
 .flex-between button {
   display: inline;
 }
+.form-label {
+  @apply block text-gray-700 dark:text-sky-700 font-medium uppercase
+}
+.form-label-error {
+  @apply block text-red-700 dark:text-red-500 font-medium uppercase
+}
+.form-field {
+  @apply rounded dark:bg-slate-700 dark:border-sky-700 dark:text-sky-700 font-medium px-2 py-1 w-full
+}
+.form-field-error {
+  @apply rounded px-2 py-1 border-red-700 dark:bg-slate-700 dark:text-white font-medium w-full
+}
+.form-field-error-label {
+  @apply block text-red-700 dark:text-red-500 animate-pulse font-medium
+}
+.form-submit {
+  @apply block font-bold bg-blue-700 dark:bg-sky-700 hover:text-blue-100 hover:bg-blue-400 dark:hover:text-sky-100 dark:hover:bg-sky-400 text-white dark:text-sky-400 mt-4 px-4 py-2 rounded
+}
+.nav-bar-link {
+  @apply py-2 px-4 font-semibold text-blue-500 dark:text-sky-500 hover:text-blue-300 dark:hover:text-sky-300  transition duration-100 ease-in-out
+}
