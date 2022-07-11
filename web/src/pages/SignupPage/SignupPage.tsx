@@ -83,6 +83,24 @@ const SignupPage = () => {
                 />
               </div>
               <div>
+                <Label name="name" htmlFor="name" className="sr-only">
+                  Email address
+                </Label>
+                <TextField
+                  id="name"
+                  name="name"
+                  autoComplete="Name"
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="name"
+                  validation={{
+                    required: {
+                      value: true,
+                      message: 'Name is required',
+                    },
+                  }}
+                />
+              </div>
+              <div>
                 <Label name="password" htmlFor="password" className="sr-only">
                   Password
                 </Label>
@@ -90,7 +108,7 @@ const SignupPage = () => {
                   id="password"
                   name="password"
                   autoComplete="current-password"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="form-field "
                   placeholder="Password"
                   validation={{
                     required: {

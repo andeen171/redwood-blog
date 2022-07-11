@@ -75,7 +75,7 @@ input.error, textarea.error {
   @apply block text-red-700 dark:text-red-500 font-medium uppercase
 }
 .form-field {
-  @apply rounded dark:bg-slate-700 dark:border-sky-700 dark:text-sky-700 font-medium px-2 py-1 w-full
+  @apply appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm
 }
 .form-field-error {
   @apply rounded px-2 py-1 border-red-700 dark:bg-slate-700 dark:text-white font-medium w-full

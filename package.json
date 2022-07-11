@@ -8,9 +8,7 @@
     ]
   },
   "devDependencies": {
-    "@redwoodjs/core": "^2.0.0",
-    "@tailwindcss/forms": "^0.5.2",
-    "tailwindcss": "latest"
+    "@redwoodjs/core": "^2.0.0"
   },
   "eslintConfig": {
     "extends": "@redwoodjs/eslint-config",
@@ -23,12 +21,5 @@
   "prisma": {
     "seed": "yarn rw exec seed"
   },
-  "packageManager": "yarn@3.2.1",
-  "dependencies": {
-    "@headlessui/react": "^1.6.5",
-    "@heroicons/react": "^1.0.6",
-    "react-icons": "^4.4.0",
-    "tailwindcss": "latest",
-    "web": "workspace:^"
-  }
+  "packageManager": "yarn@3.2.1"
 }

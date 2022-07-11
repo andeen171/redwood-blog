@@ -48,7 +48,7 @@ const ContactForm = () => {
           name="name"
           placeholder="Name"
           validation={{ required: true }}
-          className="form-field"
+          className="form-field rounded-t-md"
           errorClassName="form-field-error"
         />
         <FieldError name="name" className="form-field-error-label" />
@@ -72,7 +72,7 @@ const ContactForm = () => {
           name="message"
           placeholder="Tell us what you think about our service"
           validation={{ required: true }}
-          className="form-field"
+          className="form-field rounded-b-md"
           errorClassName="form-field-error"
         />
         <FieldError name="message" className="form-field-error-label" />

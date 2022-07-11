@@ -14,6 +14,11 @@ const LoginForm = () => {
   const { isAuthenticated, logIn } = useAuth()
   const formMethods = useForm({ mode: 'onBlur' })
   const [loading, setLoading] = useState(false)
+  const emailRef = React.useRef<HTMLInputElement>()
+
+  useEffect(() => {
+    emailRef.current.focus()
+  }, [])
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -46,9 +51,10 @@ const LoginForm = () => {
             </Label>
             <TextField
               id="email-address"
+              ref={emailRef}
               name="email"
               autoComplete="email"
-              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              className="form-field rounded-t-md"
               placeholder="Email address"
               validation={{
                 required: {
@@ -70,7 +76,7 @@ const LoginForm = () => {
               id="password"
               name="password"
               autoComplete="current-password"
-              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              className="form-field rounded-b-md"
               placeholder="Password"
               validation={{
                 required: {
