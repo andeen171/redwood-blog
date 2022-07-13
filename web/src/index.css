@@ -75,10 +75,10 @@ input.error, textarea.error {
   @apply block text-red-700 dark:text-red-500 font-medium uppercase
 }
 .form-field {
-  @apply appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm
+  @apply appearance-none relative block w-full px-3 py-2 border border-gray-300 dark:border-slate-700 placeholder-gray-500 dark:placeholder-gray-300 text-gray-900 dark:bg-slate-800 dark:text-white  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm
 }
 .form-field-error {
-  @apply rounded px-2 py-1 border-red-700 dark:bg-slate-700 dark:text-white font-medium w-full
+  @apply appearance-none relative block w-full px-3 py-2 border border-red-500 placeholder-red-500 dark:placeholder-red-700 text-gray-900 dark:bg-slate-800 dark:text-white focus:outline-none ring-red-500 z-10 sm:text-sm
 }
 .form-field-error-label {
   @apply block text-red-700 dark:text-red-500 animate-pulse font-medium

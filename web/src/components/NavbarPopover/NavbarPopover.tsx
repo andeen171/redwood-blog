@@ -22,7 +22,7 @@ const ContactPopover = ({ children, title }: Props) => {
           leaveTo="opacity-0 translate-y-1"
         >
           <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-xl md:max-w-xs sm:px-0 lg:left-1/2 lg:-translate-x-1/2">
-            <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white dark:bg-sky-500 text-white p-4">
+            <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white dark:bg-slate-800 text-white p-4">
               {children}
             </div>
           </Popover.Panel>
