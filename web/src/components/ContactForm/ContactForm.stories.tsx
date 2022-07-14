@@ -1,13 +1,7 @@
-import { ThemeProvider } from 'src/ThemeContext'
-
 import ContactForm from './ContactForm'
 
 export const generated = () => {
-  return (
-    <ThemeProvider>
-      <ContactForm />
-    </ThemeProvider>
-  )
+  return <ContactForm />
 }
 
 export default { title: 'Components/ContactForm' }

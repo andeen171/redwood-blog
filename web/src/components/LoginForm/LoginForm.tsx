@@ -104,9 +104,12 @@ const LoginForm = () => {
         </div>
 
         <div>
-          <Submit className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <Submit className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-700 dark:bg-sky-700 hover:text-blue-100 hover:bg-blue-400 dark:hover:text-sky-100 dark:hover:bg-sky-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:ring:bg-sky-500">
             <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-              <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
+              <LockClosedIcon
+                className="h-5 w-5 text-blue-500 dark:text-sky-500 dark:group-hover:text-sky-300 group-hover:text-blue-300"
+                aria-hidden="true"
+              />
             </span>
             Sign In
           </Submit>

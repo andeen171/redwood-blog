@@ -1,14 +1,8 @@
-import { ThemeProvider } from 'src/ThemeContext'
-
 import Comment from './Comment'
 import { standard } from './Comment.mock'
 
 export const generated = () => {
-  return (
-    <ThemeProvider>
-      <Comment {...standard()} />
-    </ThemeProvider>
-  )
+  return <Comment {...standard()} />
 }
 
 export default { title: 'Components/Comment' }
