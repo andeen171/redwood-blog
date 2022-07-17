@@ -11,6 +11,7 @@ import { Router, Route, Set, Private } from '@redwoodjs/router'
 
 import BlogLayout from 'src/layouts/BlogLayout/BlogLayout'
 import PostsLayout from 'src/layouts/PostsLayout/PostsLayout'
+import UsersLayout from 'src/layouts/UsersLayout/UsersLayout'
 
 const Routes = () => {
   return (
