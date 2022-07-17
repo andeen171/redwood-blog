@@ -15,8 +15,8 @@ const getInitialTheme = () => {
 }
 
 export const ThemeContext = React.createContext<[string, React.Dispatch<React.SetStateAction<string>>]>([
-  null,
-  () => null,
+  getInitialTheme(),
+  () => {},
 ])
 
 interface Props {

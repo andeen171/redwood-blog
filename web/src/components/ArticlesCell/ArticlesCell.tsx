@@ -12,6 +12,10 @@ export const QUERY = gql`
       title
       body
       createdAt
+      author {
+        id
+        name
+      }
     }
   }
 `

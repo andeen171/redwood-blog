@@ -4,12 +4,13 @@ export const schema = gql`
     createdAt: DateTime!
     email: String!
     name: String
-    role: Role!
+    roles: Role!
     posts: [Post]!
   }
 
   enum Role {
     USER
+    MOD
     ADMIN
   }
 
@@ -21,13 +22,12 @@ export const schema = gql`
   input CreateUserInput {
     email: String!
     name: String
-    role: Role!
+    roles: Role!
   }
 
   input UpdateUserInput {
-    email: String
     name: String
-    role: Role
+    roles: Role
   }
 
   type Mutation {

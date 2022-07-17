@@ -13,28 +13,42 @@ model User {
   createdAt           DateTime  @default(now())
   email               String    @unique
   name                String?
-  role                Role      @default(USER)
+  roles               Role      @default(USER)
   hashedPassword      String    @default("")
   salt                String    @default("")
   resetToken          String?
   resetTokenExpiresAt DateTime?
   posts               Post[]
+  comments            Comment[]
 }
 
 enum Role {
   USER
+  MOD
   ADMIN
 }
 
 model Post {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  published Boolean   @default(false)
+  title     String    @db.VarChar(255)
+  body      String
+  author    User?     @relation(fields: [authorId], references: [id])
+  authorId  Int?
+  comments  Comment[]
+}
+
+model Comment {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  published Boolean  @default(false)
-  title     String   @db.VarChar(255)
   body      String
   author    User?    @relation(fields: [authorId], references: [id])
   authorId  Int?
+  post      Post?    @relation(fields: [postId], references: [id])
+  postId    Int?
 }
 
 model Contact {
