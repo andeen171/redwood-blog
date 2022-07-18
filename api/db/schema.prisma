@@ -14,8 +14,8 @@ model User {
   email               String    @unique
   name                String?
   roles               Role      @default(USER)
-  hashedPassword      String    @default("")
-  salt                String    @default("")
+  hashedPassword      String
+  salt                String
   resetToken          String?
   resetTokenExpiresAt DateTime?
   posts               Post[]
@@ -35,8 +35,8 @@ model Post {
   published Boolean   @default(false)
   title     String    @db.VarChar(255)
   body      String
-  author    User?     @relation(fields: [authorId], references: [id])
-  authorId  Int?
+  author    User      @relation(fields: [authorId], references: [id])
+  authorId  Int
   comments  Comment[]
 }
 
@@ -45,10 +45,10 @@ model Comment {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   body      String
-  author    User?    @relation(fields: [authorId], references: [id])
-  authorId  Int?
-  post      Post?    @relation(fields: [postId], references: [id])
-  postId    Int?
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    Int
 }
 
 model Contact {
