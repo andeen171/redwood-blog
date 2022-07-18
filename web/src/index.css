@@ -87,5 +87,5 @@ input.error, textarea.error {
   @apply block font-bold bg-blue-700 dark:bg-sky-700 hover:text-blue-100 hover:bg-blue-400 dark:hover:text-sky-100 dark:hover:bg-sky-400 text-white dark:text-sky-400 mt-4 px-4 py-2 rounded
 }
 .nav-bar-link {
-  @apply py-2 px-4 font-semibold text-blue-500 dark:text-sky-500 hover:text-blue-300 dark:hover:text-sky-300  transition duration-100 ease-in-out
+  @apply py-2 px-4 font-semibold text-blue-500 dark:text-sky-500 hover:text-blue-300 dark:hover:text-sky-300 transition duration-100 ease-in-out
 }

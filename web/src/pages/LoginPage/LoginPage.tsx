@@ -1,10 +1,20 @@
-import { Link, routes } from '@redwoodjs/router'
+import { useEffect } from 'react'
+
+import { useAuth } from '@redwoodjs/auth'
+import { Link, navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { Toaster } from '@redwoodjs/web/toast'
 
 import LoginForm from 'src/components/LoginForm/LoginForm'
 
 const LoginPage = () => {
+  const { isAuthenticated } = useAuth()
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate(routes.home())
+    }
+  }, [isAuthenticated])
   return (
     <>
       <MetaTags title="Login" />

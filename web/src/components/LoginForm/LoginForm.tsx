@@ -4,23 +4,17 @@ import { LockClosedIcon } from '@heroicons/react/solid'
 
 import { useAuth } from '@redwoodjs/auth'
 import { Form, Label, TextField, PasswordField, Submit, useForm } from '@redwoodjs/forms'
-import { Link, navigate, routes } from '@redwoodjs/router'
+import { Link, routes } from '@redwoodjs/router'
 import { toast } from '@redwoodjs/web/toast'
 
 const LoginForm = () => {
-  const { isAuthenticated, logIn } = useAuth()
+  const { logIn } = useAuth()
   const formMethods = useForm({ mode: 'onBlur' })
   const emailRef = useRef<HTMLInputElement>()
 
   useEffect(() => {
     emailRef.current.focus()
   }, [])
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate(routes.home())
-    }
-  }, [isAuthenticated])
 
   const onSubmit = async (data) => {
     const response = await logIn({ ...data })
@@ -29,6 +23,7 @@ const LoginForm = () => {
     } else if (response.error) {
       toast.error(response.error)
     } else {
+      window.location.reload()
       toast.success('Welcome back!')
     }
   }
@@ -86,18 +81,21 @@ const LoginForm = () => {
               id="remember-me"
               name="remember-me"
               type="checkbox"
-              className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+              className="h-4 w-4 text-blue-700 dark:text-sky-500 focus:ring-blue-700 dark:focus:ring-sky-500 border-gray-300 dark:border-slate-700 dark:bg-slate-800 rounded"
             />
             <Label
               name="remember-me"
               htmlFor="remember-me"
-              className="ml-2 my-0 block text-sm text-gray-900 dark:text-gray-300"
+              className="ml-2 my-0 block text-sm text-gray-900 dark:text-gray-300 dark:bg-slate"
             >
               Remember me
             </Label>
           </div>
           <div className="text-sm">
-            <Link to={routes.forgotPassword()} className="font-medium text-indigo-600 hover:text-indigo-500">
+            <Link
+              to={routes.forgotPassword()}
+              className="font-medium text-blue-700 dark:text-sky-500  hover:text-blue-500 dark:hover:text-sky-300"
+            >
               Forgot your Password?
             </Link>
           </div>
