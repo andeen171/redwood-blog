@@ -1,19 +1,38 @@
 import type { Prisma } from '@prisma/client'
 
-export const standard = defineScenario<Prisma.PostCreateArgs>({
+export const standard = defineScenario<Prisma.PostCreateArgs | Prisma.UserCreateArgs>({
+  user: {
+    joao: {
+      data: {
+        name: 'Joao da silva',
+        email: 'joao@email.com',
+        hashedPassword: 'String',
+        salt: 'String',
+        roles: 'ADMIN',
+      },
+    },
+  },
   post: {
     one: {
       data: {
-        updatedAt: '2022-06-09T14:58:39Z',
-        title: 'String',
-        body: 'String',
+        title: 'One',
+        body: 'One for all',
+        author: {
+          connect: {
+            email: 'joao@email.com',
+          },
+        },
       },
     },
     two: {
       data: {
-        updatedAt: '2022-06-09T14:58:39Z',
-        title: 'String',
-        body: 'String',
+        title: 'Two',
+        body: 'Two for one',
+        author: {
+          connect: {
+            email: 'joao@email.com',
+          },
+        },
       },
     },
   },

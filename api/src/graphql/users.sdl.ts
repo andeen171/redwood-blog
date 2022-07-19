@@ -5,7 +5,12 @@ export const schema = gql`
     email: String!
     name: String
     roles: Role!
+    hashedPassword: String!
+    salt: String!
+    resetToken: String
+    resetTokenExpiresAt: DateTime
     posts: [Post]!
+    comments: [Comment]!
   }
 
   enum Role {
@@ -23,11 +28,20 @@ export const schema = gql`
     email: String!
     name: String
     roles: Role!
+    hashedPassword: String!
+    salt: String!
+    resetToken: String
+    resetTokenExpiresAt: DateTime
   }
 
   input UpdateUserInput {
+    email: String
     name: String
     roles: Role
+    hashedPassword: String
+    salt: String
+    resetToken: String
+    resetTokenExpiresAt: DateTime
   }
 
   type Mutation {

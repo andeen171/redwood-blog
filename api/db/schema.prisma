@@ -13,7 +13,7 @@ model User {
   createdAt           DateTime  @default(now())
   email               String    @unique
   name                String?
-  roles               Role      @default(USER)
+  roles               Role
   hashedPassword      String
   salt                String
   resetToken          String?

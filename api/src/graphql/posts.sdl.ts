@@ -7,7 +7,7 @@ export const schema = gql`
     title: String!
     body: String!
     author: User
-    authorId: Int
+    authorId: Int!
   }
 
   type Query {
@@ -19,7 +19,7 @@ export const schema = gql`
     published: Boolean!
     title: String!
     body: String!
-    authorId: Int
+    authorId: Int!
     updatedAt: Date
   }
 

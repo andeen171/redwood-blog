@@ -1,35 +1,48 @@
 import type { Prisma } from '@prisma/client'
 
-export const standard = defineScenario<Prisma.CommentCreateArgs>({
-  comment: {
-    jane: {
+export const standard = defineScenario<Prisma.CommentCreateArgs | Prisma.PostCreateArgs | Prisma.UserCreateArgs>({
+  user: {
+    joao: {
       data: {
-        body: 'I like trees',
-        post: {
-          create: {
-            title: 'Redwood Leaves',
-            body: 'The quick brown fox jumped over the lazy dog.',
-          },
-        },
+        name: 'Joao da silva',
+        email: 'joao@email.com',
+        hashedPassword: 'String',
+        salt: 'String',
+        roles: 'ADMIN',
+      },
+    },
+  },
+  post: {
+    one: {
+      data: {
+        title: 'One',
+        body: 'One for all',
         author: {
-          create: {
-            name: 'Jane Doe',
+          connect: {
+            email: 'joao@email.com',
           },
         },
       },
     },
-    john: {
+  },
+  comment: {
+    joao: {
       data: {
-        body: 'Hug a tree today',
-        post: {
-          create: {
-            title: 'Root Systems',
-            body: 'The five boxing wizards jump quickly.',
+        body: 'I like trees',
+        author: {
+          connect: {
+            email: 'joao@email.com',
           },
         },
-        author: {
+        post: {
           create: {
-            name: 'John Doe',
+            title: 'Redwood Leaves',
+            body: 'The quick brown fox jumped over the lazy dog.',
+            author: {
+              connect: {
+                email: 'joao@email.com',
+              },
+            },
           },
         },
       },
@@ -37,12 +50,32 @@ export const standard = defineScenario<Prisma.CommentCreateArgs>({
   },
 })
 
-export const postOnly = defineScenario<Prisma.PostCreateArgs>({
+export const postOnly = defineScenario<Prisma.PostCreateArgs | Prisma.UserCreateArgs>({
+  user: {
+    joao: {
+      data: {
+        name: 'Joao da silva',
+        email: 'joao@email.com',
+        hashedPassword: 'String',
+        salt: 'String',
+        roles: 'ADMIN',
+      },
+    },
+  },
   post: {
     bark: {
       data: {
         title: 'Bark',
         body: "A tree's bark is worse than its bite",
+        author: {
+          create: {
+            name: 'Joe Doe',
+            email: 'joe@email.com',
+            hashedPassword: 'password',
+            salt: 'salt',
+            roles: 'ADMIN',
+          },
+        },
       },
     },
   },

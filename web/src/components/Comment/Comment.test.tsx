@@ -26,7 +26,7 @@ describe('Comment', () => {
 
   it('renders a delete button if the user is a moderator', async () => {
     mockCurrentUser({
-      role: 'MOD',
+      roles: 'MOD',
       id: 1,
       email: 'moderator@moderator.com',
       name: 'moderador',

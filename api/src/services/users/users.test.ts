@@ -1,12 +1,6 @@
 import { users, user, createUser, updateUser, deleteUser } from './users'
 import type { StandardScenario } from './users.scenarios'
 
-// Generated boilerplate tests do not account for all circumstances
-// and can fail without adjustments, e.g. Float and DateTime types.
-//           Please refer to the RedwoodJS Testing Docs:
-//       https://redwoodjs.com/docs/testing#testing-services
-// https://redwoodjs.com/docs/testing#jest-expect-type-considerations
-
 describe('users', () => {
   scenario('returns all users', async (scenario: StandardScenario) => {
     const result = await users()
@@ -15,31 +9,39 @@ describe('users', () => {
   })
 
   scenario('returns a single user', async (scenario: StandardScenario) => {
-    const result = await user({ id: scenario.user.one.id })
+    const result = await user({ id: scenario.user.joao.id })
 
-    expect(result).toEqual(scenario.user.one)
+    expect(result).toEqual(scenario.user.joao)
   })
 
   scenario('creates a user', async () => {
     const result = await createUser({
-      input: { email: 'String9087734' },
+      input: {
+        name: 'Jose da penha',
+        email: 'jose@email.com',
+        hashedPassword: 'hashedPassword',
+        salt: 'salt',
+        roles: 'USER',
+      },
     })
 
-    expect(result.email).toEqual('String9087734')
+    expect(result.email).toEqual('jose@email.com')
+    expect(result.hashedPassword).toEqual('hashedPassword')
+    expect(result.salt).toEqual('salt')
   })
 
   scenario('updates a user', async (scenario: StandardScenario) => {
-    const original = await user({ id: scenario.user.one.id })
+    const original = await user({ id: scenario.user.joao.id })
     const result = await updateUser({
       id: original.id,
-      input: { email: 'String73284502' },
+      input: { name: 'Joao maria' },
     })
 
-    expect(result.email).toEqual('String73284502')
+    expect(result.name).toEqual('Joao maria')
   })
 
   scenario('deletes a user', async (scenario: StandardScenario) => {
-    const original = await deleteUser({ id: scenario.user.one.id })
+    const original = await deleteUser({ id: scenario.user.maria.id })
     const result = await user({ id: original.id })
 
     expect(result).toEqual(null)

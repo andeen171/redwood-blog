@@ -2,8 +2,24 @@ import type { Prisma } from '@prisma/client'
 
 export const standard = defineScenario<Prisma.UserCreateArgs>({
   user: {
-    one: { data: { email: 'String6310423' } },
-    two: { data: { email: 'String2296652' } },
+    joao: {
+      data: {
+        name: 'Joao da cunha az',
+        email: 'joao@email.com',
+        hashedPassword: 'hashedPassword',
+        salt: 'salt',
+        roles: 'USER',
+      },
+    },
+    maria: {
+      data: {
+        name: 'Maria aparecida',
+        email: 'maria@email.com',
+        hashedPassword: 'hashedPassword',
+        salt: 'salt',
+        roles: 'USER',
+      },
+    },
   },
 })
 

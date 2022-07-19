@@ -5,48 +5,33 @@ import { db } from 'src/lib/db'
 import { comments, comment, createComment, updateComment, deleteComment } from './comments'
 import type { StandardScenario, PostOnlyScenario } from './comments.scenarios'
 
-// Generated boilerplate tests do not account for all circumstances
-// and can fail without adjustments, e.g. Float and DateTime types.
-//           Please refer to the RedwoodJS Testing Docs:
-//       https://redwoodjs.com/docs/testing#testing-services
-// https://redwoodjs.com/docs/testing#jest-expect-type-considerations
-
 describe('comments', () => {
   scenario('returns all comments from a post', async (scenario: StandardScenario) => {
-    const result = await comments({ postId: scenario.comment.jane.postId })
+    const result = await comments({ postId: scenario.comment.joao.postId })
     const post = await db.post.findUnique({
-      where: { id: scenario.comment.jane.postId },
+      where: { id: scenario.comment.joao.postId },
       include: { comments: true },
     })
     expect(result.length).toEqual(post.comments.length)
   })
 
-  scenario('postOnly', 'creates a new comment', async (scenario: PostOnlyScenario) => {
+  scenario('creates a new comment', async (scenario: PostOnlyScenario) => {
     const comment = await createComment({
       input: {
         body: 'What is your favorite tree bark?',
-        postId: scenario.post.bark.id,
-        authorId: 1,
+        postId: scenario.post.one.id,
+        authorId: scenario.user.joao.id,
       },
     })
 
-    expect(comment.authorId).toEqual(1)
+    expect(comment.authorId).toEqual(scenario.user.joao.id)
     expect(comment.body).toEqual('What is your favorite tree bark?')
-    expect(comment.postId).toEqual(scenario.post.bark.id)
+    expect(comment.postId).toEqual(scenario.post.one.id)
     expect(comment.createdAt).not.toEqual(null)
   })
 
-  scenario('creates a comment', async () => {
-    const result = await createComment({
-      input: { updatedAt: '2022-07-17T20:14:37Z', body: 'String' },
-    })
-
-    expect(result.updatedAt).toEqual('2022-07-17T20:14:37Z')
-    expect(result.body).toEqual('String')
-  })
-
-  scenario('updates a comment', async (scenario: StandardScenario) => {
-    const original = await comment({ id: scenario.comment.one.id })
+  scenario('updates an existing comment', async (scenario: StandardScenario) => {
+    const original = await comment({ id: scenario.comment.joao.id })
     const result = await updateComment({
       id: original.id,
       input: { body: 'String2' },
@@ -64,25 +49,25 @@ describe('comments', () => {
     })
 
     const comment = await deleteComment({
-      id: scenario.comment.jane.id,
+      id: scenario.comment.joao.id,
     })
-    expect(comment.id).toEqual(scenario.comment.jane.id)
+    expect(comment.id).toEqual(scenario.comment.joao.id)
 
-    const result = await comments({ postId: scenario.comment.jane.id })
+    const result = await comments({ postId: scenario.comment.joao.postId })
     expect(result.length).toEqual(0)
   })
 
   scenario('does not allow a non-moderator to delete a comment', async (scenario: StandardScenario) => {
     mockCurrentUser({
-      roles: 'MOD',
+      roles: 'USER',
       id: 1,
-      email: 'moderator@moderator.com',
-      name: 'Moderator',
+      email: 'user@user.com',
+      name: 'User',
     })
 
     expect(() =>
       deleteComment({
-        id: scenario.comment.jane.id,
+        id: scenario.comment.joao.id,
       })
     ).toThrow(ForbiddenError)
   })
@@ -92,7 +77,7 @@ describe('comments', () => {
 
     expect(() =>
       deleteComment({
-        id: scenario.comment.jane.id,
+        id: scenario.comment.joao.id,
       })
     ).toThrow(AuthenticationError)
   })
