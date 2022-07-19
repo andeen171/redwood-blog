@@ -14,7 +14,11 @@ export const QUERY = gql`
       createdAt
       email
       name
-      role
+      roles
+      hashedPassword
+      salt
+      resetToken
+      resetTokenExpiresAt
     }
   }
 `
@@ -25,14 +29,20 @@ const UPDATE_USER_MUTATION = gql`
       createdAt
       email
       name
-      role
+      roles
+      hashedPassword
+      salt
+      resetToken
+      resetTokenExpiresAt
     }
   }
 `
 
 export const Loading = () => <div>Loading...</div>
 
-export const Failure = ({ error }: CellFailureProps) => <div className="rw-cell-error">{error.message}</div>
+export const Failure = ({ error }: CellFailureProps) => (
+  <div className="rw-cell-error">{error.message}</div>
+)
 
 export const Success = ({ user }: CellSuccessProps<EditUserById>) => {
   const [updateUser, { loading, error }] = useMutation(UPDATE_USER_MUTATION, {

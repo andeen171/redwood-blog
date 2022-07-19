@@ -22,7 +22,7 @@ const CREATE_COMMENT = gql`
 `
 
 interface FormValues {
-  comment: string
+  body: string
 }
 
 interface props {
@@ -52,23 +52,21 @@ const CommentForm = ({ postId }: props) => {
   }
   return (
     <div>
-      <h3 className="ftext-md text-blue-700 dark:text-sky-400 font-semibold dark:font-medium hover:text-sky-200 transition duration-100">
-        Leave a Comment
-      </h3>
+      <h3 className="text-md text-blue-700 dark:text-sky-400 font-semibold">Leave a Comment</h3>
       <Form className="mt-4 w-full space-y-3" error={error} formMethods={formMethods} onSubmit={onSubmit}>
-        <div>
+        <div className="h-auto">
           <TextAreaField
             name="body"
             placeholder="Tell everyone what you think about this article!"
             validation={{ required: true }}
-            className="form-field rounded"
+            className="block w-full appearance-none focus:outline-none bg-transparent border-0 border-b-2 focus:border-blue-500"
             errorClassName="form-field-error rounded-b-md"
           />
         </div>
         <div>
           <Submit
             disabled={loading}
-            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-700 dark:bg-sky-700 hover:text-blue-100 hover:bg-blue-400 dark:hover:text-sky-100 dark:hover:bg-sky-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:ring:bg-sky-500"
+            className="group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-700 dark:bg-sky-700 hover:text-blue-100 hover:bg-blue-400 dark:hover:text-sky-100 dark:hover:bg-sky-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:ring:bg-sky-500"
           >
             {loading ? (
               <span className="inset-y-0 flex items-center pl-3">

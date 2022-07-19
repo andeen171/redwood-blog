@@ -1,5 +1,3 @@
-import type { Comment as IComment } from 'types/graphql'
-
 import { useAuth } from '@redwoodjs/auth'
 import { useMutation } from '@redwoodjs/web'
 
@@ -15,7 +13,16 @@ const DELETE_COMMENT = gql`
 `
 
 interface Props {
-  comment: Partial<IComment>
+  comment: {
+    id: number
+    body: string
+    author: {
+      id: number
+      name: string
+    }
+    createdAt: string
+    postId: number
+  }
 }
 
 const Comment = ({ comment }: Props) => {

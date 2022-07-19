@@ -21,6 +21,11 @@ body {
 #redwood-app {
   min-height: 100vh;
 }
+textarea {
+  resize: none;
+  overflow: hidden;
+  height: auto;
+}
 ul {
   list-style-type: none;
   margin: 1rem 0;

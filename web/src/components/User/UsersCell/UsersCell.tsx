@@ -12,7 +12,11 @@ export const QUERY = gql`
       createdAt
       email
       name
-      role
+      roles
+      hashedPassword
+      salt
+      resetToken
+      resetTokenExpiresAt
     }
   }
 `
@@ -23,14 +27,19 @@ export const Empty = () => {
   return (
     <div className="rw-text-center">
       {'No users yet. '}
-      <Link to={routes.newUser()} className="rw-link">
+      <Link
+        to={routes.newUser()}
+        className="rw-link"
+      >
         {'Create one?'}
       </Link>
     </div>
   )
 }
 
-export const Failure = ({ error }: CellFailureProps) => <div className="rw-cell-error">{error.message}</div>
+export const Failure = ({ error }: CellFailureProps) => (
+  <div className="rw-cell-error">{error.message}</div>
+)
 
 export const Success = ({ users }: CellSuccessProps<FindUsers>) => {
   return <Users users={users} />

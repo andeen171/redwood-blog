@@ -35,7 +35,7 @@ const truncate = (text) => {
   return output
 }
 
-const _jsonTruncate = (obj) => {
+const jsonTruncate = (obj) => {
   return truncate(JSON.stringify(obj, null, 2))
 }
 
@@ -49,7 +49,7 @@ const timeTag = (datetime) => {
   )
 }
 
-const _checkboxInputTag = (checked) => {
+const checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
@@ -83,7 +83,11 @@ const UsersList = ({ users }) => {
             <th>Created at</th>
             <th>Email</th>
             <th>Name</th>
-            <th>Role</th>
+            <th>Roles</th>
+            <th>Hashed password</th>
+            <th>Salt</th>
+            <th>Reset token</th>
+            <th>Reset token expires at</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -94,7 +98,11 @@ const UsersList = ({ users }) => {
               <td>{timeTag(user.createdAt)}</td>
               <td>{truncate(user.email)}</td>
               <td>{truncate(user.name)}</td>
-              <td>{formatEnum(user.role)}</td>
+              <td>{formatEnum(user.roles)}</td>
+              <td>{truncate(user.hashedPassword)}</td>
+              <td>{truncate(user.salt)}</td>
+              <td>{truncate(user.resetToken)}</td>
+              <td>{timeTag(user.resetTokenExpiresAt)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

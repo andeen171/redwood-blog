@@ -23,7 +23,7 @@ const formatEnum = (values: string | string[] | null | undefined) => {
   }
 }
 
-const _jsonDisplay = (obj) => {
+const jsonDisplay = (obj) => {
   return (
     <pre>
       <code>{JSON.stringify(obj, null, 2)}</code>
@@ -41,7 +41,7 @@ const timeTag = (datetime) => {
   )
 }
 
-const _checkboxInputTag = (checked) => {
+const checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
@@ -73,31 +73,46 @@ const User = ({ user }) => {
             <tr>
               <th>Id</th>
               <td>{user.id}</td>
-            </tr>
-            <tr>
+            </tr><tr>
               <th>Created at</th>
               <td>{timeTag(user.createdAt)}</td>
-            </tr>
-            <tr>
+            </tr><tr>
               <th>Email</th>
               <td>{user.email}</td>
-            </tr>
-            <tr>
+            </tr><tr>
               <th>Name</th>
               <td>{user.name}</td>
-            </tr>
-            <tr>
-              <th>Role</th>
-              <td>{formatEnum(user.role)}</td>
+            </tr><tr>
+              <th>Roles</th>
+              <td>{formatEnum(user.roles)}</td>
+            </tr><tr>
+              <th>Hashed password</th>
+              <td>{user.hashedPassword}</td>
+            </tr><tr>
+              <th>Salt</th>
+              <td>{user.salt}</td>
+            </tr><tr>
+              <th>Reset token</th>
+              <td>{user.resetToken}</td>
+            </tr><tr>
+              <th>Reset token expires at</th>
+              <td>{timeTag(user.resetTokenExpiresAt)}</td>
             </tr>
           </tbody>
         </table>
       </div>
       <nav className="rw-button-group">
-        <Link to={routes.editUser({ id: user.id })} className="rw-button rw-button-blue">
+        <Link
+          to={routes.editUser({ id: user.id })}
+          className="rw-button rw-button-blue"
+        >
           Edit
         </Link>
-        <button type="button" className="rw-button rw-button-red" onClick={() => onDeleteClick(user.id)}>
+        <button
+          type="button"
+          className="rw-button rw-button-red"
+          onClick={() => onDeleteClick(user.id)}
+        >
           Delete
         </button>
       </nav>
