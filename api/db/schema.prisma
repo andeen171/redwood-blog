@@ -12,7 +12,7 @@ model User {
   id                  Int       @id @default(autoincrement())
   createdAt           DateTime  @default(now())
   email               String    @unique
-  name                String?
+  name                String
   roles               Role
   hashedPassword      String
   salt                String

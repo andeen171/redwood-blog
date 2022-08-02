@@ -3,7 +3,7 @@ export const schema = gql`
     id: Int!
     createdAt: DateTime!
     email: String!
-    name: String
+    name: String!
     roles: Role!
     hashedPassword: String!
     salt: String!
@@ -26,22 +26,16 @@ export const schema = gql`
 
   input CreateUserInput {
     email: String!
-    name: String
+    name: String!
     roles: Role!
-    hashedPassword: String!
-    salt: String!
-    resetToken: String
-    resetTokenExpiresAt: DateTime
+    password: String!
   }
 
   input UpdateUserInput {
     email: String
     name: String
     roles: Role
-    hashedPassword: String
-    salt: String
-    resetToken: String
-    resetTokenExpiresAt: DateTime
+    password: String
   }
 
   type Mutation {

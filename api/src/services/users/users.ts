@@ -1,3 +1,4 @@
+import { PBKDF2, lib } from 'crypto-js'
 import type { QueryResolvers, MutationResolvers, UserResolvers } from 'types/graphql'
 
 import { db } from 'src/lib/db'
@@ -13,9 +14,9 @@ export const user: QueryResolvers['user'] = ({ id }) => {
 }
 
 export const createUser: MutationResolvers['createUser'] = ({ input }) => {
-  return db.user.create({
-    data: input,
-  })
+  const salt = lib.WordArray.random(128 / 8).toString()
+  const hashedPassword = PBKDF2(input.password, salt, { keySize: 256 / 32 }).toString()
+  return db.user.create({ data: { email: input.email, name: input.name, roles: input.roles, hashedPassword, salt } })
 }
 
 export const updateUser: MutationResolvers['updateUser'] = ({ id, input }) => {

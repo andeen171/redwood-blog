@@ -51,42 +51,39 @@ const CommentForm = ({ postId }: props) => {
     createComment({ variables: { input: { postId, authorId, ...input } } })
   }
   return (
-    <div>
+    <Form className="mt-4 w-full space-y-3" error={error} formMethods={formMethods} onSubmit={onSubmit}>
       <h3 className="text-md text-blue-700 dark:text-sky-400 font-semibold">Leave a Comment</h3>
-      <Form className="mt-4 w-full space-y-3" error={error} formMethods={formMethods} onSubmit={onSubmit}>
-        <div className="h-auto">
-          <TextAreaField
-            name="body"
-            placeholder="Tell everyone what you think about this article!"
-            validation={{ required: true }}
-            className="block w-full appearance-none focus:outline-none bg-transparent border-0 border-b-2 focus:border-blue-500"
-            errorClassName="form-field-error rounded-b-md"
-          />
-        </div>
-        <div>
-          <Submit
-            disabled={loading}
-            className="group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-700 dark:bg-sky-700 hover:text-blue-100 hover:bg-blue-400 dark:hover:text-sky-100 dark:hover:bg-sky-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:ring:bg-sky-500"
-          >
-            {loading ? (
-              <span className="inset-y-0 flex items-center pl-3">
-                <AiOutlineLoading className="animate-spin h-5 w-5 text-blue-500 dark:text-sky-500 dark:group-hover:text-sky-300 group-hover:text-blue-300" />
+      <div className="h-auto">
+        <TextAreaField
+          name="body"
+          placeholder="Tell everyone what you think about this article!"
+          validation={{ required: true }}
+          className="form-field rounded"
+        />
+      </div>
+      <div className="flex justify-end">
+        <Submit
+          disabled={loading}
+          className="group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-700 dark:bg-sky-700 hover:text-blue-100 hover:bg-blue-400 dark:hover:text-sky-100 dark:hover:bg-sky-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:ring:bg-sky-500"
+        >
+          {loading ? (
+            <span className="inset-y-0 flex items-center pl-3">
+              <AiOutlineLoading className="animate-spin h-5 w-5 text-blue-500 dark:text-sky-500 dark:group-hover:text-sky-300 group-hover:text-blue-300" />
+            </span>
+          ) : (
+            <>
+              Comment
+              <span className="right-2 inset-y-0 flex items-center pl-3">
+                <ChatIcon
+                  className="h-5 w-5 text-blue-500 dark:text-sky-500 dark:group-hover:text-sky-300 group-hover:text-blue-300"
+                  aria-hidden="true"
+                />
               </span>
-            ) : (
-              <>
-                <span className="absolute right-2 inset-y-0 flex items-center pl-3">
-                  <ChatIcon
-                    className="h-5 w-5 text-blue-500 dark:text-sky-500 dark:group-hover:text-sky-300 group-hover:text-blue-300"
-                    aria-hidden="true"
-                  />
-                </span>
-                Send
-              </>
-            )}
-          </Submit>
-        </div>
-      </Form>
-    </div>
+            </>
+          )}
+        </Submit>
+      </div>
+    </Form>
   )
 }
 

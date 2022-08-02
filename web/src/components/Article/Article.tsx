@@ -1,5 +1,3 @@
-import type { Post } from 'types/graphql'
-
 import { Link, routes } from '@redwoodjs/router'
 
 import CommentForm from 'src/components/CommentForm'
@@ -8,7 +6,12 @@ import formatDate from 'src/utils/FormatDate/FormatDate'
 import truncateText from 'src/utils/TruncateText/TruncateText'
 
 interface Props {
-  article: Partial<Post>
+  article: {
+    id: number
+    title: string
+    body: string
+    createdAt: string
+  }
   summary?: boolean
 }
 
