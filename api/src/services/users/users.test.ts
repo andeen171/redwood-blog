@@ -19,15 +19,14 @@ describe('users', () => {
       input: {
         name: 'Jose da penha',
         email: 'jose@email.com',
-        hashedPassword: 'hashedPassword',
-        salt: 'salt',
+        password: 'password',
         roles: 'USER',
       },
     })
 
+    expect(result.name).toEqual('jose da penha')
     expect(result.email).toEqual('jose@email.com')
-    expect(result.hashedPassword).toEqual('hashedPassword')
-    expect(result.salt).toEqual('salt')
+    expect(result.hashedPassword).toHaveLength(64)
   })
 
   scenario('updates a user', async (scenario: StandardScenario) => {

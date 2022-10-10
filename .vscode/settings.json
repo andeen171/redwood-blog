@@ -1,7 +1,7 @@
 {
   "editor.tabSize": 4,
   "files.trimTrailingWhitespace": true,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
@@ -9,5 +9,4 @@
     "editor.formatOnSave": true
   },
   "editor.fontLigatures": true,
-  "editor.fontFamily": "Fira Code"
 }
